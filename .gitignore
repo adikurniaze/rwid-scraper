@@ -1,4 +1,8 @@
 .idea/
+results/*
+results.json
+results.csv
+all_urls.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
