@@ -1,3 +1,5 @@
+RWID Scraper
+
 1. login
 2. collecting all urls for each page
 3. getting all product url
