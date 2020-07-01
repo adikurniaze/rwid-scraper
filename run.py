@@ -89,22 +89,28 @@ def create_csv():
 # program running
 def run():
     total_pages = login()
-    total_urls = []
-    for i in range(total_pages):
-        page = i + 1
-        urls = get_urls(page)
-        total_urls += urls #total_urls = total_urls + urls
 
-    with open('all_urls.json', 'w') as outfile:
-        json.dump(total_urls, outfile)
+    options = int(input('\n1. Collecting all urls\n2. Get detail all products\n'
+                        '3. Create csv file\nInput option number : '))
+    if options == 1:
+        total_urls = []
+        for i in range(total_pages):
+            page = i + 1
+            urls = get_urls(page)
+            total_urls += urls #total_urls = total_urls + urls
 
-    with open('all_urls.json') as json_file:
-        all_url = json.load(json_file)
+        with open('all_urls.json', 'w') as outfile:
+            json.dump(total_urls, outfile)
 
-    for url in all_url:
-        get_detail(url)
+    if options == 2:
+        with open('all_urls.json') as json_file:
+            all_url = json.load(json_file)
 
-    create_csv()
+        for url in all_url:
+            get_detail(url)
+
+    if options == 3:
+            create_csv()
 
 if __name__ == '__main__':
     run()
